@@ -34,7 +34,8 @@ public:
     rclcpp::QoS reliable_qos(rclcpp::KeepLast(10));
     reliable_qos.reliable();
     faults_pub_ = this->create_publisher<fleetops_msgs::msg::Fault>("/fleet/faults", reliable_qos);
-    health_pub_ = this->create_publisher<fleetops_msgs::msg::RobotHealth>("/fleet/health", reliable_qos);
+    health_pub_ =
+      this->create_publisher<fleetops_msgs::msg::RobotHealth>("/fleet/health", reliable_qos);
 
     timer_ = this->create_wall_timer(100ms, std::bind(&HealthSupervisor::on_timer, this));
   }
@@ -73,10 +74,11 @@ private:
     }
   }
 
-  void publish_fault(const std::string & robot_id,
-                     const std::string & code,
-                     const std::string & message,
-                     uint8_t severity)
+  void publish_fault(
+    const std::string & robot_id,
+    const std::string & code,
+    const std::string & message,
+    uint8_t severity)
   {
     fleetops_msgs::msg::Fault msg;
     msg.robot_id = robot_id;
