@@ -1,4 +1,4 @@
-# ADR0001 - Platform choice
+# (Architecture Decision Record)ADR0001 - Platform choice
 
 ## Decision
 Use Windows + WSL2 (Ubuntu 24.04)  + ROS 2 Jazzy.
